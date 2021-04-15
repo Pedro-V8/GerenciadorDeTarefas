@@ -19,6 +19,7 @@ public class Principal {
 		Login loginD = new Login(); //Objeto Login para entrar no sistema
 		JFrame frameLogin = new JFrame("Login");
 
+		//Colcando os componentes
 		frameLogin.setSize(300,150);
 		frameLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -54,6 +55,7 @@ public class Principal {
 		
 		frameLogin.add(panel);
 		
+		//Ação do Botão Login
 		loginButton.addActionListener(e -> {
 			String user , senha;
 			user = userT.getText();
@@ -71,6 +73,7 @@ public class Principal {
 
 		});
 		
+		//Ação do botão Registrar
 		registerButton.addActionListener(e -> {
 			
 			reg.criaFrameR(banco);

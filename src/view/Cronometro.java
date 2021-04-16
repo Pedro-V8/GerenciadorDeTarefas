@@ -14,7 +14,9 @@ public class Cronometro {
 	private int contador = 0;
 	public boolean rodando = false;
 	
+	//Método para Iniciar o Cronômetro
 	public void init() {
+		//Criando o frame e componentes
 		JFrame frame = new JFrame("Cronometro");
 		frame.setSize(300 , 200);
 		frame.setLayout(new BorderLayout());
@@ -28,9 +30,10 @@ public class Cronometro {
 		
 		JButton btnIniciar = new JButton("Iniciar");
 		
+		//Ação do botão Iniciar
 		btnIniciar.addActionListener(e -> {
 			if(!rodando) {
-				tm = new Timer();
+				tm = new Timer(); //Instanciando Timer
 				rodando = true;
 				tm.scheduleAtFixedRate( new TimerTask() {
 					@Override
@@ -47,6 +50,7 @@ public class Cronometro {
 			}
 		});
 		
+		//Ação do botão Parar
 		JButton btnParar = new JButton("Parar");
 		btnParar.addActionListener(e -> {
 			if(rodando) {

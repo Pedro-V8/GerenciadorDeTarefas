@@ -4,9 +4,11 @@ import model.*;
 import controller.*;
 
 public class Registro {
-	Cadastro cadastro = new Cadastro();
+	Cadastro cadastro = new Cadastro(); // Instancia objeto que está presente em Controller
 	
+	//Método que cria frame e recebe o Banco de Dados Usuários
 	public void criaFrameR(BancoUsuarios banco) {
+		//Inciando JFrame e componentes
 		JFrame frame = new JFrame("Registro");
 		frame.setSize(500 , 500);
 		JPanel panelRegistro = new JPanel();
@@ -52,7 +54,7 @@ public class Registro {
 		panelRegistro.add(botaoRegistro);
 		
 		
-		
+		//Ação botão Registro
 		botaoRegistro.addActionListener(e -> {
 			if(nomeT.getText().isEmpty() || idadeT.getText().isEmpty() || usuarioT.getText().isEmpty() || senhaT.getText().isEmpty()) {
 				JFrame frameE = new JFrame("Erro");

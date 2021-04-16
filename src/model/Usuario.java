@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 
 public class Usuario {
+	//Atributos
 	private String nome;
 	private String idade;
 	private String usuario;
 	private String senha;
 	private ArrayList <Tarefa> tarefa = new ArrayList();
 	
+	//Construtor
 	public Usuario(String n , String i , String u , String s) {
 		nome = n;
 		idade = i;
@@ -17,7 +19,7 @@ public class Usuario {
 		senha = s;
 	}
 	
-	
+	//Métodos Getters e Setters
 	public String getNome() {
 		return this.nome;
 	}
@@ -54,21 +56,18 @@ public class Usuario {
 	}
 	
 	
+	//Método para salvar tarefa no arrayList
 	public void salvaTarefa(Tarefa tar) {
 		tarefa.add(tar);
 	}
+	
+	//Método para retornar tarefa. (Usado para listar as tarefas)
 	public String[] retornaTarefa() {
 		String tarefasD[] = new String[tarefa.size()];
 		for(int i = 0; i < tarefa.size(); i++) {
 			tarefasD[i] = tarefa.get(i).getDescricao();
 		}
 		return tarefasD;
-	}
-	
-	public void testaTarefa(int index) {
-		if(tarefa.get(index).getTipo().equals("BaixaBaixa")) {
-			System.out.print("è Baixa");
-		}
 	}
 	
 

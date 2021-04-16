@@ -55,7 +55,7 @@ public class Principal {
 		
 		frameLogin.add(panel);
 		
-		//Ação do Botão Login
+		//Ação do botão Login
 		loginButton.addActionListener(e -> {
 			String user , senha;
 			user = userT.getText();

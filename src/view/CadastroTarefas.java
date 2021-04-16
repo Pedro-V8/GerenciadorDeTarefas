@@ -9,8 +9,10 @@ import model.*;
 import javax.swing.*;
 
 public class CadastroTarefas {
-	
-	public JPanel criaPanel(Usuario user) {
+	//Método que retorna um JPanel para ser usando quando instanciado
+	public JPanel criaPanel(Usuario user) { //Recebe Usuario para ter informações necessárias
+		
+		//Implementando os componentes
 		JPanel panelCadastro = new JPanel();
 		panelCadastro.setLayout(null);
 		JLabel frase = new JLabel("Digite a Descrição");
@@ -43,19 +45,20 @@ public class CadastroTarefas {
 		panelCadastro.add(opcao3);
 		
 		
-		JButton botao = new JButton("Cadastrar");
-		botao.setBounds(170 , 300 , 110 , 25);
-		panelCadastro.add(botao);
+		JButton botaoCadastro = new JButton("Cadastrar");
+		botaoCadastro.setBounds(170 , 300 , 110 , 25);
+		panelCadastro.add(botaoCadastro);
 		
 		
 		JButton botaoVoltar = new JButton("Voltar");
-		botaoVoltar.setBounds(170 , 400 , 100 , 30);
+		botaoVoltar.setBounds(170 , 340 , 110 , 25);
 		panelCadastro.add(botaoVoltar);
 		
 		
 		panelCadastro.setVisible(true);
 		
-		botao.addActionListener(e -> {
+		//Ação do Botão Cadastro
+		botaoCadastro.addActionListener(e -> {
 			
 			if(opcao1.isSelected()) {
 				// data/hora atual
@@ -109,7 +112,7 @@ public class CadastroTarefas {
 				
 				JFrame frame = new JFrame("Sucesso");
 				frame.setSize(300,150);
-				JLabel fraseSucesso = new JLabel("Cadastrado com Sucesso1");
+				JLabel fraseSucesso = new JLabel("Cadastrado com Sucesso");
 				frame.add(fraseSucesso);
 				frame.setVisible(true);	
 			}else {
@@ -123,6 +126,7 @@ public class CadastroTarefas {
 			
 		});
 		
+		//Ação do botão voltar
 		botaoVoltar.addActionListener(e -> {
 			Principal princ = new Principal();
 			panelCadastro.setVisible(false);

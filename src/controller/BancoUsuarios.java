@@ -1,23 +1,19 @@
-package model;
+package controller;
 import java.util.*;
+
+import model.Usuario;
 public class BancoUsuarios {
 	
-	public static Usuario user;
-	ArrayList<Usuario> usuarios = new ArrayList();
+	private static Usuario user; //Declarando objeto do tipo Usuario
+	ArrayList<Usuario> usuarios = new ArrayList(); //ArrayList para salvar os Usuários Registrados
 	
+	//Salva Usuário no ArrayList
 	public void cadastraUsuario(Usuario user) {
 		usuarios.add(user);
 
-
 	}
 	
-	public void mostraUsuario() {
-		for(Usuario userTeste: usuarios) {
-			System.out.print(userTeste.getUsuario());
-		}
-	}
-	
-	
+	//Método para verificar se o Usuário está cadastrado, retornando 1 para sim e 0 para não.
 	public int autenticaUsuario(String usuario , String senha) {
 		int resposta = 0;
 		for(Usuario userTeste: usuarios) {
@@ -30,6 +26,7 @@ public class BancoUsuarios {
 	}
 	
 	
+	//Retorna o usuário
 	public Usuario retornaUsuario() {
 		return this.user;
 	}

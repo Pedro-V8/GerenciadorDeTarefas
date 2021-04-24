@@ -14,11 +14,11 @@ public class BancoUsuarios {
 	}
 	
 	//Método para verificar se o Usuário está cadastrado, retornando 1 para sim e 0 para não.
-	public int autenticaUsuario(String usuario , String senha) {
-		int resposta = 0;
+	public boolean autenticaUsuario(String usuario , String senha) {
+		boolean resposta = false;
 		for(Usuario userTeste: usuarios) {
 			if(userTeste.getUsuario().equals(usuario) && userTeste.getSenha().equals(senha)) {
-				resposta = 1;
+				resposta = true;
 				user = new Usuario(userTeste.getNome() , userTeste.getIdade() , userTeste.getUsuario() , userTeste.getSenha());
 			}
 		}

@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"view","c":"Cronometro","l":"Cronometro()","u":"%3Cinit%3E()"},{"p":"view","c":"Cronometro","l":"init()"},{"p":"view","c":"Cronometro","l":"rodando"}];updateSearchResults();

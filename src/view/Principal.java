@@ -5,6 +5,13 @@ import java.awt.CardLayout;
 import javax.swing.*;
 import controller.*;
 
+/**
+ * Classe Principal responsável por gerar a Tela de Login e Registro, além de se comunicar com outras classes que geram os JPanels
+ * @author Pedro Henrique
+ * @version 1.0
+ */
+
+
 public class Principal {
 	//Instanciando Objetos
 	private static JFrame framePrincipal;
@@ -14,7 +21,6 @@ public class Principal {
 	public static ListaTarefas listaTarefas;
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		Login loginD = new Login(); //Objeto Login para entrar no sistema
 		JFrame frameLogin = new JFrame("Login");
@@ -63,11 +69,8 @@ public class Principal {
 			if(loginD.mostraUsuario(banco , user , senha)) {
 				criaFrame(banco.retornaUsuario());
 			}else {
-				JFrame frameE = new JFrame("Erro");
-				frameE.setSize(300 , 150);
-				JLabel fraseErro = new JLabel("Erro no Login , digite novamente ou se registre.");
-				frameE.add(fraseErro);
-				frameE.setVisible(true);
+				JOptionPane.showMessageDialog(null, "Erro no Login , digite novamente ou se registre.", null , JOptionPane.ERROR_MESSAGE);
+				
 			}
 			
 
@@ -76,32 +79,49 @@ public class Principal {
 		//Ação do botão Registrar
 		registerButton.addActionListener(e -> {
 			
-			reg.criaFrameR(banco);
+			try {
+				reg.criaFrameR(banco);
+			} catch (Exception e2) {
+				System.out.print(e2);
+			}
 		});
 		
-
 
 		frameLogin.setVisible(true);
 	}
 	
 	
+	/**
+	 * Método que cria o frame após a autenticação do Login.
+	 * @param usuario cadastrado
+	 * @return nenhum
+	 */ 
 	public static void criaFrame(Usuario user) {
-		framePrincipal = new JFrame("Heelo doido");
+		framePrincipal = new JFrame("Gerenciador");
 		JPanel container = new JPanel();
 
 		container.setLayout(null);
 		framePrincipal.setSize(500 , 500);
+		
 		JButton botaoVerTarefas = new JButton("Ver Tarefas");
-		JButton botao2 = new JButton("Cadastrar Tarefas");
-		JButton botao3 = new JButton("Realizar Tarefas");
-		
-		botaoVerTarefas.setBounds(170 , 110 , 150 , 25);
-		botao2.setBounds(170 , 210 , 150 , 25);
-		botao3.setBounds(170 , 310 , 150 , 25);
-		
+		botaoVerTarefas.setBounds(170 , 150 , 150 , 25);
 		container.add(botaoVerTarefas);
+		
+		
+		JButton botao2 = new JButton("Cadastrar Tarefas");
+		botao2.setBounds(170 , 250 , 150 , 25);
 		container.add(botao2);
-		container.add(botao3);
+
+		JLabel imagem = new JLabel();
+		imagem.setBounds(175 ,15 , 250 , 60);
+		imagem.setIcon(new ImageIcon(Principal.class.getResource("/imagens/sunb.png")));
+		container.add(imagem);
+		
+		JLabel nomeUser = new JLabel("Seja Bem Vindo(a) , " + user.getNome());
+		nomeUser.setBounds(175 , 80 , 250 , 60);
+		container.add(nomeUser);
+		
+
 		
 		
 	
@@ -111,10 +131,8 @@ public class Principal {
 		
 		botaoVerTarefas.addActionListener(e -> {
 
-			//container.setVisible(false);
 			listaTarefas = new ListaTarefas(user);
 			
-			//frameP.add(); 
 		});
 		
 		
@@ -126,6 +144,11 @@ public class Principal {
 		
 	}
 	
+	/**
+	 * Método responsávelpor trocar o panel do JFrame
+	 * @param recebe o JPanel no qual se deseja mostrar
+	 * @return nenhum
+	 */
 	public static void trocaPanel(JPanel panel) {
 		framePrincipal.add(panel);
 	}

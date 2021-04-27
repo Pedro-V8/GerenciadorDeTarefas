@@ -1,13 +1,29 @@
 package view;
+import java.text.ParseException;
+
 import javax.swing.*;
+import javax.swing.text.MaskFormatter;
+
 import model.*;
 import controller.*;
 
+/**
+ * Classe responsável por cadastrar usuário
+ * @author Pedro Henrique
+ * @version 1.0
+ */
+
 public class Registro {
+	
 	Cadastro cadastro = new Cadastro(); // Instancia objeto que está presente em Controller
 	
-	//Método que cria frame e recebe o Banco de Dados Usuários
-	public void criaFrameR(BancoUsuarios banco) {
+	/**
+	 * Método responsável por criar o frame registro e salvar no Banco de Dados
+	 * @param um objeto instanciado da Classe BancoUsuarios, para salvar o Usuário Registrado
+	 * @return nenhum
+	 */
+	public void criaFrameR(BancoUsuarios banco) throws ParseException{
+		
 		//Inciando JFrame e componentes
 		JFrame frame = new JFrame("Registro");
 		frame.setSize(500 , 500);
@@ -27,8 +43,12 @@ public class Registro {
 		panelRegistro.add(idadeL);
 		
 		
-		JTextField idadeT = new JTextField(20);
-		idadeT.setBounds(150 , 120 , 30 , 23);
+		
+		JFormattedTextField idadeT;
+		MaskFormatter formatoIdade = new MaskFormatter("##");
+		
+		idadeT = new JFormattedTextField(formatoIdade);
+		idadeT.setBounds(150 , 120 , 45 , 23);
 		panelRegistro.add(idadeT);
 		
 		
@@ -56,20 +76,20 @@ public class Registro {
 		
 		//Ação botão Registro
 		botaoRegistro.addActionListener(e -> {
-			if(nomeT.getText().isEmpty() || idadeT.getText().isEmpty() || usuarioT.getText().isEmpty() || senhaT.getText().isEmpty()) {
-				JFrame frameE = new JFrame("Erro");
-				frameE.setSize(300 , 150);
-				JLabel fraseErro = new JLabel("Foram encontrados erros");
-				frameE.add(fraseErro);
-				frameE.setVisible(true);
-			}else {
+			VerificaDados verificaDados = new VerificaDados();
+			String nome = nomeT.getText();
+			String idade = idadeT.getText();
+			String usuario = usuarioT.getText();
+			String senha = senhaT.getText();
+			if(verificaDados.verifica(nome , idade , usuario , senha) == false) {
 
+				JOptionPane.showMessageDialog(null, "Foram encontrados erros", null , JOptionPane.ERROR_MESSAGE);
+
+			}else {
 				cadastro.criaUsuario(nomeT.getText(), idadeT.getText(), usuarioT.getText(),  senhaT.getText() , banco);
-				JFrame frameS = new JFrame("Sucesso");
-				frameS.setSize(300 , 150);
-				JLabel fraseSucesso = new JLabel("Cadastrado com Sucesso");
-				frameS.add(fraseSucesso);
-				frameS.setVisible(true);
+
+				JOptionPane.showMessageDialog(null, "Cadastrado com Sucesso");
+
 				
 			}
 			

@@ -2,6 +2,11 @@ package model;
 
 import java.util.Date;
 
+/**
+ * Classe responsável por gerar objeto Tarefa
+ * @author Pedro Vieira
+ * @version 1.0
+ */	
 public class Tarefa {
 	//Declarando Atributos
 	private String descricao;

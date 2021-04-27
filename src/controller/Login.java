@@ -2,9 +2,20 @@ package controller;
 import java.util.*;
 import model.*;
 
+/**
+ * Classe responsável por verificar se o Usuário está dentro do Banco de Dados
+ * @author Pedro Henrique
+ * @version 1.0
+ */
 public class Login {
 
-	// Método que verifica se o Usuario está no Banco, caso 1 (Sim), ele entra no sistema
+	/**
+	 * Método responsável
+	 * @param banco
+	 * @param usuario
+	 * @param senha
+	 * @return
+	 */
 	public boolean mostraUsuario(BancoUsuarios banco , String usuario , String senha) {
 		boolean entrar = false;
 		if(banco.autenticaUsuario(usuario , senha) == true) {

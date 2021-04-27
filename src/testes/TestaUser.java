@@ -18,13 +18,13 @@ class TestaUser {
 	void testCadastraUsuario() {
 		assertTrue(verificaDados.verifica("Pedro", "20", "PedroV10", "123123"));
 	}
+	
+	
 
 	@Test
 	void testAutenticaUsuario() {
 		banco.cadastraUsuario(usuario);
 		assertTrue(banco.autenticaUsuario(usuario.getUsuario(), usuario.getSenha()));
 	}
-	
-	
 
 }

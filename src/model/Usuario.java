@@ -2,7 +2,11 @@ package model;
 
 import java.util.ArrayList;
 
-
+/**
+ * Classe responsável por gerar objeto Usuário
+ * @author Pedro Vieira
+ * @version 1.0
+ */	
 public class Usuario {
 	//Atributos
 	private String nome;
@@ -61,7 +65,11 @@ public class Usuario {
 		tarefa.add(tar);
 	}
 	
-	//Método para retornar tarefa. (Usado para listar as tarefas)
+	/**
+	 * Método para retornar as tarefas, nesse caso retorna apenas a descrição
+	 * @param nenhum
+	 * @return array do tipo string
+	 */
 	public String[] retornaTarefa() {
 		String tarefasD[] = new String[tarefa.size()];
 		for(int i = 0; i < tarefa.size(); i++) {

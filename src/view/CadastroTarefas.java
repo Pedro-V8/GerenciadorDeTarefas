@@ -8,8 +8,19 @@ import model.*;
 
 import javax.swing.*;
 
+/**
+ * Classe responsável por criar o JPanel de cadastro de Tarefas
+ * @author Pedro Henrique
+ * @version 1.0
+ */
+
 public class CadastroTarefas {
-	//Método que retorna um JPanel para ser usando quando instanciado
+	
+	/**
+	 * Método Responsável por criar o JPanel de registro de Tarefas
+	 * @param usuário para relacionar as tarefas registradas
+	 * @return jpanel para ser adicionado no jframe
+	 */
 	public JPanel criaPanel(Usuario user) { //Recebe Usuario para ter informações necessárias
 		
 		//Implementando os componentes

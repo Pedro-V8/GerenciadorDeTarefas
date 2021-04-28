@@ -1,5 +1,6 @@
 package testes;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -17,6 +18,7 @@ class TestaUser {
 	@Test
 	void testCadastraUsuario() {
 		assertTrue(verificaDados.verifica("Pedro", "20", "PedroV10", "123123"));
+		
 	}
 	
 	
@@ -26,5 +28,6 @@ class TestaUser {
 		banco.cadastraUsuario(usuario);
 		assertTrue(banco.autenticaUsuario(usuario.getUsuario(), usuario.getSenha()));
 	}
+	
 
 }

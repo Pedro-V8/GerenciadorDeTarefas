@@ -15,6 +15,7 @@ public class VerificaDados {
 	 * @param senha
 	 * @return booleano, onde true representa que o usuário digitou corretamente e false que o usuário digitou algo errado.
 	 */
+	
 	public boolean verifica(String nome , String idade , String user , String senha) {
 		boolean resposta = true;
 		if(nome.equals("") || idade.equals("") || user.equals("") || senha.equals("")) {
